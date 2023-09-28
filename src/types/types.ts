@@ -24,14 +24,15 @@ export interface StoreProps {
 
 
 
-  addToCart:() => void
+  addToCart:(id:number) => void
   calculateTotal: () => void
-  deleteItem:(name:string) => void
+  deleteItem:(id:number) => void
   changeCurrentImageIndex: (position:number) => void
 }
 
 
 export interface Product {
+  id:number
   name:string
   description:string
   price: number
@@ -40,6 +41,7 @@ export interface Product {
 }
 
 export interface ProductCart {
+  id:number
   name:string
   price:number
   quantity:number

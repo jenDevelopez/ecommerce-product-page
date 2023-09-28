@@ -1,10 +1,10 @@
 
 import { ProductStore } from "../../store/ProductStore"
 
-function CartAddButton() {
+function CartAddButton({id}: {id:number}) {
   const {addToCart,calculateTotal} = ProductStore()
   const buy = () => {
-    addToCart()
+    addToCart(id)
     calculateTotal()
   }
   

@@ -20,8 +20,8 @@ function CartItems() {
                 <span className="text-black font-bold"> ${total}</span>
               </p>
             </div>
-            <button onClick={() => deleteItem(item.name)}>
-              <img src="/public/images/icon-delete.svg" alt="delete icon" />
+            <button onClick={() => deleteItem(item.id)}>
+              <img src="../images/icon-delete.svg" alt="delete icon" />
             </button>
           </div>
           

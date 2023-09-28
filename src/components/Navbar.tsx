@@ -16,7 +16,7 @@ function Navbar() {
             <BurgerButton />
           
           <div>
-            <img className='ml-6' src="/public/images/logo.svg" alt="" />
+            <img className='ml-6' src="../images/logo.svg" alt="" />
           </div>
           
           <nav className=" hidden md:block">
@@ -33,7 +33,7 @@ function Navbar() {
         <div className='flex justify-between gap-5 lg:mr-6'>
           <CartButton />
           <p className={`
-          w-[20px] h-[15px] rounded-xl  text-sm flex justify-center items-center text-white font-bold absolute right-[4.7rem] top-6 lg:right-[13.5rem] lg:top-8
+          w-[20px] h-[15px] rounded-xl  text-sm flex justify-center items-center text-white font-bold absolute right-[3.2rem] top-7 lg:right-[13.5rem] lg:top-8
           ${quantity > 0 ? 'bg-[#FF7D1B]': 'bg-transparent'}
           `}>{units}</p>
           <Avatar />

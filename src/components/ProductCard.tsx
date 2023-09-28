@@ -64,7 +64,7 @@ export default function ProductCard() {
           </div>
           <div className="lg:flex lg:items-center lg:gap-4 lg:w-3/4 lg:justify-start">
             <Counter />
-            <CartAddButton />
+            <CartAddButton id={product.id}/>
           </div>
 
         </div>
