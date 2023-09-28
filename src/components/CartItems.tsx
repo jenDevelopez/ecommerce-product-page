@@ -1,4 +1,4 @@
-import { ProductStore } from "../assets/store/ProductStore"
+import { ProductStore } from "../store/ProductStore"
 
 
 function CartItems() {
@@ -24,7 +24,7 @@ function CartItems() {
               <img src="/public/images/icon-delete.svg" alt="delete icon" />
             </button>
           </div>
-          <button className="bg-[#FF7D1B] text-white w-full p-4 font-semibold mt-2 rounded-lg">Checkout</button>
+          
         </div>
       ))}
     </>

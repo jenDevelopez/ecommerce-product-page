@@ -6,3 +6,4 @@
 - React js
 - Tailwind
 - Typescript
+- Zustand

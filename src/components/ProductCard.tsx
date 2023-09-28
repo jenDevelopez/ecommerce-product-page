@@ -1,19 +1,20 @@
-import { ProductStore } from "../assets/store/ProductStore"
+import { ProductStore } from "../store/ProductStore"
+import { buttonImage } from "../types/types"
 import CartAddButton from "./Buttons/CartAddButton"
 import CarruselBig from "./CarruselBig"
 import Counter from "./Counter"
 
 
 export default function ProductCard() {
-  const { product, goToNextImage, goToPreviousImage, currentImageIndex, buttonsImage, changeCurrentImageIndex, seeBig } = ProductStore()
-
+  const { product, goToNextImage, goToPreviousImage, currentImageIndex, buttonsImage, changeCurrentImageIndex, seeBig,setSeeBig  } = ProductStore()
 
   return (
     <>
-      <div className={`lg:flex lg:justify-center lg:items-center lg:h-screen ${seeBig && 'opacity-75'}`}>
+      <div className={`lg:flex lg:justify-center lg:items-center h-[91.9%] ${seeBig && ' lg:bg-black lg:opacity-25'}`}>
         <div className="relative lg:static md:w-1/2">
           <div className="overflow-hidden w-full h-64 lg:h-auto lg:w-[60%] lg:mx-auto lg:rounded-xl">
             <img
+              onClick={() => setSeeBig(true)}
               src={product.images[currentImageIndex]} alt="product image"
               className="w-full h-auto object-cover transform transition-transform duration-300 hover:scale-110 lg:rounded-xl"
             />
@@ -21,7 +22,7 @@ export default function ProductCard() {
           </div>
           <div className="hidden lg:block w-full lg:h-1/2 pt-6">
             <div className="w-[60%] mx-auto flex justify-between">
-              {buttonsImage.map((button, index) => (
+              {buttonsImage.map((button:buttonImage, index:number) => (
                 <button onClick={() => changeCurrentImageIndex(index)} className={`w-16  ${currentImageIndex === index ? 'opacity-50 border-2 rounded-lg border-[#FF7D1B]' : ''}`} key={button.id}>
                   <img className="rounded-lg" src={button.image} alt="image product" />
                 </button>
@@ -48,7 +49,7 @@ export default function ProductCard() {
           </div>
           {/* botones de flechas */}
         </div>
-        <div className="p-4 lg:w-1/2">
+        <div className=" p-4 lg:w-1/2 lg:self-start lg:mt-20">
           <div className="p-5 flex flex-col justify-between">
             <h2 className="text-[#FF7D1B] font-bold">SNEAKER COMPANY</h2>
             <h3 className="text-3xl font-bold my-2">{product.name}</h3>

@@ -1,58 +1,43 @@
-import { ProductStore } from "../assets/store/ProductStore"
-
+import { ProductStore } from "../store/ProductStore"
 function CarruselBig() {
-  const { product, goToNextImage, goToPreviousImage, currentImageIndex, buttonsImage, changeCurrentImageIndex } = ProductStore()
+  const { product, goToNextImage, goToPreviousImage, currentImageIndex,setSeeBig } = ProductStore()
   return (
 
-    <div className="h-screen flex justify-center items-center fixed top-0 left-36">
-      <div className="relative w-2/4 h-">
+    <div className="hidden lg:h-screen lg:flex lg:justify-center lg:items-center lg:fixed lg:top-0 lg:left-[17%]">
+      <div className="relative w-[60%] h-">
         <div className="overflow-hidden w-full h-auto">
-          <img
+          <img 
             src={product.images[currentImageIndex]} alt="product image"
-            className="w-full h-auto object-cover transform transition-transform duration-300 hover:scale-110 lg:rounded-xl"
+            className="w-full lg:rounded-xl"
           />
 
         </div>
-
+        <div className="absolute top-1/2 left-[-4%] transform -translate-y-1/2">
+          <button
+            onClick={goToPreviousImage}
+            className=" w-10 h-10 text-black bg-white rounded-full grid place-items-center "
+          >
+            <img className="mr-1 hover:text-[#FF7D1B]" src="/public/images/icon-previous.svg" alt="" />
+          </button>
+        </div>
+        <div className="absolute top-1/2 right-[-4%] transform -translate-y-1/2">
+          <button
+            onClick={goToNextImage}
+            className="hidden lg:w-10 lg:h-10 lg:rounded-full lg:bg-white lg:grid lg:place-items-center lg:cursor-pointer"
+          >
+            <img className="lg:ml-1 hover:bg-[hover:text-[#FF7D1B]" src="/public/images/icon-next.svg" alt="" />
+          </button>
+        </div>
+        <div className="absolute top-[-5%] right-[-1%] transform -translate-y-1/2">
+          <button
+            onClick={() => setSeeBig(false)}
+            className="lg:w-10 lg:h-10 lg:rounded-full text-[#FF7D1B] lg:grid lg:place-items-center lg:cursor-pointer "
+          >
+            <img  src="/public/images/icon-close.svg" alt="" />
+          </button>
+        </div>
       </div>
-      {/* botones de flechas */}
-      <div className="absolute top-1/2 left-0 transform -translate-y-1/2">
-        <button
-          onClick={goToPreviousImage}
-          className="px-2 py-1 text-white rounded-l-md lg:hidden"
-        >
-          <img src="/public/images/icon-previous.svg" alt="" />
-        </button>
-      </div>
-      <div className="absolute top-1/2 right-0 transform -translate-y-1/2">
-        <button
-          onClick={goToNextImage}
-          className="px-2 py-1text-white rounded-r-md lg:hidden"
-        >
-          <img src="/public/images/icon-next.svg" alt="" />
-        </button>
-      </div>
-      {/* botones de flechas */}
-      <div className="absolute top-1/2 left-0 transform -translate-y-1/2">
-        <button
-          onClick={goToPreviousImage}
-          className="px-2 py-1 text-black bg-white rounded-full rounded-l-md lg:hidden"
-        >
-          <img src="/public/images/icon-previous.svg" alt="" />
-        </button>
-      </div>
-      <div className="absolute top-1/2 right-0 transform -translate-y-1/2">
-        <button
-          onClick={goToNextImage}
-          className="px-2 py-1 text-black rounded-full bg-white lg:hidden"
-        >
-          <img src="/public/images/icon-next.svg" alt="" />
-        </button>
-      </div>
-
-
     </div>
-
   )
 }
 

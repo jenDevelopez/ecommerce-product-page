@@ -1,5 +1,5 @@
 import {create} from 'zustand'
-import { StoreProps } from '../../types/types';
+import { StoreProps } from '../types/types';
 
 export const ProductStore  = create<StoreProps>((set,get) => ({
   open: false,
@@ -40,20 +40,21 @@ export const ProductStore  = create<StoreProps>((set,get) => ({
     }
   
   ],
-  seeBig: true,
+  seeBig: false,
 
 
-
+  setSeeBig: (value) => set({seeBig:value}),
   setOpen: (value:boolean) => set({open:value}),
   setSeeCart: (value) => set({seeCart: value}),
 
 
   goToPreviousImage: () => {
+    const product = get().product
     const currentImage = get().currentImageIndex
     if (currentImage === 0) {
-      return null;
+      set({currentImageIndex: product.images.length - 1});
     } else {
-      set({currentImageIndex: currentImage + 1})
+      set({currentImageIndex: currentImage - 1})
     }
   },
 
@@ -61,7 +62,7 @@ export const ProductStore  = create<StoreProps>((set,get) => ({
     const currentImage = get().currentImageIndex
     const product = get().product
     if (currentImage >= product.images.length - 1) {
-      return null;
+      set({currentImageIndex: 0});
     } else {
       set({currentImageIndex:currentImage + 1})
     }
@@ -105,6 +106,7 @@ export const ProductStore  = create<StoreProps>((set,get) => ({
     const item = cart.findIndex((item) => item.name === name)
     const newCart = cart.splice(1,item)
     set({cart: newCart})
+    set({quantity:0})
   },
 
   changeCurrentImageIndex: (position) => {

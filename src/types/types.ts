@@ -11,6 +11,7 @@ export interface StoreProps {
   seeBig:boolean
 
 
+  setSeeBig:(value:boolean) => void
   setOpen: (value:boolean) => void
   setSeeCart: (value:boolean) => void
 

@@ -1,13 +1,13 @@
 import BurgerButton from './Buttons/BurgerButton'
 import CartButton from './Buttons/CartButton'
 import Avatar from './Avatar'
-import { ProductStore } from '../assets/store/ProductStore'
+import { ProductStore } from '../store/ProductStore'
 
 
 function Navbar() {
   const { open,quantity } = ProductStore()
   
-  const units = (quantity > 0) ? quantity : ''
+  const units = (quantity > 0) && quantity 
   return (
     <>
       <div className='py-5 border-b flex justify-between items-center'>
@@ -33,7 +33,7 @@ function Navbar() {
         <div className='flex justify-between gap-5 lg:mr-6'>
           <CartButton />
           <p className={`
-          w-[20px] h-[15px] rounded-xl  text-sm flex justify-center items-center text-white font-bold absolute right-[4.7rem] top-6
+          w-[20px] h-[15px] rounded-xl  text-sm flex justify-center items-center text-white font-bold absolute right-[4.7rem] top-6 lg:right-[13.5rem] lg:top-8
           ${quantity > 0 ? 'bg-[#FF7D1B]': 'bg-transparent'}
           `}>{units}</p>
           <Avatar />

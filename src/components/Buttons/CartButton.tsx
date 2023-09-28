@@ -1,4 +1,4 @@
-import { ProductStore } from "../../assets/store/ProductStore"
+import { ProductStore } from "../../store/ProductStore"
 
 
 
